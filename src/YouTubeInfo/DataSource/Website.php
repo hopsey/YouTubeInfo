@@ -17,7 +17,7 @@ use YouTubeInfo\Hydrator\ValueObject;
 use YouTubeInfo\ValueObject\StringValue;
 use YouTubeInfo\VideoEntity;
 
-class Website
+class Website implements DataSourceInterface
 {
     /**
      * @var AdapterInterface

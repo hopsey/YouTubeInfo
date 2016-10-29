@@ -27,6 +27,11 @@ class VideoEntity
     private $channelId;
 
     /**
+     * @var StringValue
+     */
+    private $title;
+
+    /**
      * @var IntegerNumber
      */
     private $views;
@@ -65,6 +70,7 @@ class VideoEntity
      * VideoEntity constructor.
      * @param StringValue $id
      * @param StringValue $channelId
+     * @param StringValue $title
      * @param IntegerNumber $views
      * @param IntegerNumber $comments
      * @param IntegerNumber $likes
@@ -73,12 +79,13 @@ class VideoEntity
      * @param StringValue $description
      * @param DateInterval $duration
      */
-    public function __construct(StringValue $id, StringValue $channelId, IntegerNumber $views, IntegerNumber $comments,
+    public function __construct(StringValue $id, StringValue $channelId, StringValue $title, IntegerNumber $views, IntegerNumber $comments,
             IntegerNumber $likes, IntegerNumber $dislikes, DateTime $publishDate, StringValue $description,
             DateInterval $duration)
     {
         $this->id = $id;
         $this->channelId = $channelId;
+        $this->title = $title;
         $this->views = $views;
         $this->comments = $comments;
         $this->likes = $likes;

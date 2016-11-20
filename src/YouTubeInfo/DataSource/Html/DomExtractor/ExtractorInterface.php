@@ -6,7 +6,7 @@
  * Time: 14:57
  */
 
-namespace YouTubeInfo\DataSource\Website\DomExtractor;
+namespace YouTubeInfo\DataSource\Html\DomExtractor;
 
 use YouTubeInfo\ValueObject\StringValue;
 

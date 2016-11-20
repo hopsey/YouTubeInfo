@@ -3,6 +3,8 @@
 namespace YouTubeInfo\ValueObject;
 
 
+use StdDomain\ValueObject\InvalidNativeArgumentException;
+
 class StringValue extends StringLiteral
 {
     const ERR_EMPTY_VALUE = 'emptyValue';

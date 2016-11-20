@@ -10,7 +10,7 @@ namespace YouTubeInfo\DataSource;
 
 
 use YouTubeInfo\ValueObject\StringValue;
-use YouTubeInfo\VideoEntity;
+use YouTubeInfo\Entity\VideoEntity;
 
 interface DataSourceInterface
 {

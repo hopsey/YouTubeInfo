@@ -9,6 +9,8 @@
 namespace YouTubeInfo\ValueObject;
 
 
+use StdDomain\ValueObject\InvalidNativeArgumentException;
+
 class YTUrlPattern extends Url
 {
     const ERR_INVALID_YT_PATTERN = 'InvalidYtPattern';

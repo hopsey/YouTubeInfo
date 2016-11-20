@@ -9,8 +9,13 @@
 namespace YouTubeInfo\ValueObject;
 
 
+use StdDomain\ValueObject\InvalidNativeArgumentException;
+use StdDomain\ValueObject\ValueObjectInterface;
+
 class DateInterval implements ValueObjectInterface
 {
+    const INVALID_FORMAT = 'invalidIntervalFormat';
+
     /**
      * @var \DateInterval
      */
@@ -26,7 +31,11 @@ class DateInterval implements ValueObjectInterface
 
     public function __construct($value)
     {
-        $this->dateTime = new \DateInterval($value);
+        try {
+            $this->dateTime = new \DateInterval($value);
+        } catch (\Exception $e) {
+            throw new InvalidNativeArgumentException("Invalid interval format", self::INVALID_FORMAT);
+        }
     }
 
     /**

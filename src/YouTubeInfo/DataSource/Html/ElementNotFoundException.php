@@ -6,7 +6,7 @@
  * Time: 22:27
  */
 
-namespace YouTubeInfo\DataSource\Website\DomExtractor;
+namespace YouTubeInfo\DataSource\Html;
 
 
 use Zend\Dom\Document;

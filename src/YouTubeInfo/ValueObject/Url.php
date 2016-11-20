@@ -8,6 +8,9 @@
 
 namespace YouTubeInfo\ValueObject;
 
+use StdDomain\ValueObject\InvalidNativeArgumentException;
+use StdDomain\ValueObject\ValueObjectInterface;
+use StdDomain\ValueObject\ValueObjectTrait;
 use Zend\Validator\StaticValidator;
 use Zend\Validator\Uri;
 
@@ -15,7 +18,7 @@ class Url implements ValueObjectInterface
 {
     const ERR_INVALID_URL = 'invalidUrl';
 
-    use SimpleValueObjectTrait;
+    use ValueObjectTrait;
 
     public function __construct($url)
     {

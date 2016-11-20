@@ -2,9 +2,13 @@
 
 namespace YouTubeInfo\ValueObject;
 
+use StdDomain\ValueObject\InvalidNativeArgumentException;
+use StdDomain\ValueObject\ValueObjectInterface;
+use StdDomain\ValueObject\ValueObjectTrait;
+
 class StringLiteral implements ValueObjectInterface
 {
-    use SimpleValueObjectTrait;
+    use ValueObjectTrait;
 
     const ERR_INVALID_STRING = 'invalidString';
 

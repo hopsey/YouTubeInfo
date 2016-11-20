@@ -6,15 +6,16 @@
  * Time: 22:15
  */
 
-namespace YouTubeInfo;
+namespace YouTubeInfo\Entity;
 
 use GuzzleHttp\Tests\Psr7\Str;
+use StdDomain\Entity\EntityInterface;
 use YouTubeInfo\ValueObject\DateInterval;
 use YouTubeInfo\ValueObject\DateTime;
 use YouTubeInfo\ValueObject\IntegerNumber;
 use YouTubeInfo\ValueObject\StringValue;
 
-class VideoEntity
+class VideoEntity implements EntityInterface
 {
     /**
      * @var StringValue

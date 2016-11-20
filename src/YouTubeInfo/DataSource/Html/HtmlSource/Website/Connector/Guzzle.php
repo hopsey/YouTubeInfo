@@ -6,20 +6,16 @@
  * Time: 13:16
  */
 
-namespace YouTubeInfo\DataSource\Website\Connector;
+namespace YouTubeInfo\DataSource\Html\HtmlSource\Website\Connector;
 
 
 use GuzzleHttp\Client;
-use YouTubeInfo\ValueObject\StringValue;
-use YouTubeInfo\ValueObject\YTUrlPattern;
+use GuzzleHttp\Exception\RequestException;
+use Psr\Http\Message\ResponseInterface;
+use YouTubeInfo\ValueObject\Url;
 
 class Guzzle implements AdapterInterface
 {
-    /**
-     * @var YTUrlPattern
-     */
-    private $url;
-
     /**
      * @var Client
      */
@@ -31,15 +27,11 @@ class Guzzle implements AdapterInterface
     private $httpMethod = 'GET';
 
     /**
-     * YTVideo URL pattern. Should include [YTVideoId] tag
-     * @param YTUrlPattern $url
      * @param array|null $guzzleOptions
      * @param string $httpMethod
      */
-    public function __construct(YTUrlPattern $url, $guzzleOptions = [], $httpMethod = 'GET')
+    public function __construct($guzzleOptions = [], $httpMethod = 'GET')
     {
-        $this->url = $url;
-
         $defaultConfig = [
             'headers' => [
                 'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -54,11 +46,15 @@ class Guzzle implements AdapterInterface
         $this->httpMethod = 'GET';
     }
 
-    public function retrieve(StringValue $ytId): StringValue
+    public function retrieve(Url $url): ResponseInterface
     {
-        $targetUrl = $this->url->substitute($ytId);
-        $response = $this->guzzleClient->request($this->httpMethod, (string)$targetUrl);
-        return StringValue::fromNative($response->getBody()->getContents());
+        try {
+            $response = $this->guzzleClient->request($this->httpMethod, (string)$url);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+        }
+
+        return $response;
     }
 
 }

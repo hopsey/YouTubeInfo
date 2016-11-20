@@ -6,9 +6,10 @@
  * Time: 16:42
  */
 
-namespace YouTubeInfo\DataSource\Website\DomExtractor;
+namespace YouTubeInfo\DataSource\Html\DomExtractor;
 
 
+use YouTubeInfo\DataSource\Html\ElementNotFoundException;
 use YouTubeInfo\ValueObject\StringValue;
 use Zend\Dom\Document;
 use Zend\Dom\Document\Query;

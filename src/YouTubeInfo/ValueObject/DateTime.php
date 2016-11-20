@@ -9,6 +9,8 @@
 namespace YouTubeInfo\ValueObject;
 
 
+use StdDomain\ValueObject\ValueObjectInterface;
+
 class DateTime implements ValueObjectInterface
 {
     /**

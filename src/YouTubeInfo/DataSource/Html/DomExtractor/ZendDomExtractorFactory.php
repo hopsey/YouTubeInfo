@@ -34,12 +34,12 @@ final class ZendDomExtractorFactory
 
         // likes
         $extractor->registerExtractValue('likes', 'button.like-button-renderer-like-button span', function (NodeList $dom) {
-            return (int)$dom->current()->nodeValue;
+            return (int)filter_var($dom->current()->nodeValue, FILTER_SANITIZE_NUMBER_INT);
         });
 
         // dislikes
         $extractor->registerExtractValue('dislikes', 'button.like-button-renderer-dislike-button span', function (NodeList $dom) {
-            return (int)$dom->current()->nodeValue;
+            return (int)filter_var($dom->current()->nodeValue, FILTER_SANITIZE_NUMBER_INT);
         });
 
         // publishDate
